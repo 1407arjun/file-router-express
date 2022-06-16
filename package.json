@@ -1,5 +1,5 @@
 {
-  "name": "express-mvc",
+  "name": "mvc-fy",
   "version": "0.0.0",
   "description": "Making Express.js more stricter than it is",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1407arjun/express-mvc.git"
+    "url": "git+https://github.com/1407arjun/mvc-fy.git"
   },
   "keywords": [
     "express",
@@ -22,9 +22,9 @@
   "author": "Arjun Sivaraman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1407arjun/express-mvc/issues"
+    "url": "https://github.com/1407arjun/mvc-fy/issues"
   },
-  "homepage": "https://github.com/1407arjun/express-mvc#readme",
+  "homepage": "https://github.com/1407arjun/mvc-fy#readme",
   "dependencies": {
     "express": "^4.18.1"
   },
