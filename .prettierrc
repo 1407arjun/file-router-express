@@ -1,6 +1,6 @@
 {
     "bracketSameLine": true,
-    "tabWidth": 4,
+    "tabWidth": 2,
     "arrowParens": "avoid",
     "trailingComma": "none",
     "semi": false
