@@ -1,4 +1,4 @@
-name: ci
+name: CI
 
 on:
   - pull_request
@@ -23,9 +23,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        shell: bash
         run: npm test --if-present
 
       - name: Lint code
-        if: steps.list_env.outputs.eslint != ''
         run: npm run lint
