@@ -1,11 +1,15 @@
 import readDirRecursive from "./utils/readDirRecursive"
 import path from "path"
+import mapRoutes from "./router/map"
 
-let files = readDirRecursive(path.join(process.cwd(), "dist/routes"))
+const dir = path.join(process.cwd(), "dist/routes")
+const files = readDirRecursive(dir)
+const paths: string[] = []
 
-files = files.map(file => {
+const routes = files.map(file => {
     const fileDir = path.parse(file).dir
     let fileName = path.parse(file).name
+    paths.push(path.join(fileDir, fileName))
 
     if (fileName.startsWith("[") && fileName.endsWith("]"))
         fileName = `:${fileName.slice(1, fileName.length - 1)}`
@@ -13,4 +17,6 @@ files = files.map(file => {
     return path.join(fileDir, fileName)
 })
 
-console.log(files)
+const router = mapRoutes(dir, paths, routes)
+
+export default router
