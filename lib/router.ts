@@ -9,10 +9,10 @@ const paths: string[] = []
 const routes = files.map(file => {
     let fileDir = path.parse(file).dir
     let fileName = path.parse(file).name
-    paths.push(path.join(fileDir, fileName))
+    paths.push(path.posix.join(fileDir, fileName))
 
     fileDir = fileDir
-        .split("/")
+        .split(path.sep)
         .map(file => {
             if (file.startsWith("[") && file.endsWith("]"))
                 return `:${file.slice(1, file.length - 1)}`
@@ -24,7 +24,7 @@ const routes = files.map(file => {
     else if (fileName.startsWith("[") && fileName.endsWith("]"))
         fileName = `:${fileName.slice(1, fileName.length - 1)}`
 
-    return path.join(fileDir, fileName)
+    return path.posix.join(fileDir, fileName)
 })
 
 const router = mapRoutes(dir, paths, routes)
