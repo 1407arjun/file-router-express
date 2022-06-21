@@ -20,7 +20,8 @@ const routes = files.map(file => {
         })
         .join("/")
 
-    if (fileName.startsWith("[") && fileName.endsWith("]"))
+    if (fileName.startsWith("[...") && fileName.endsWith("]")) fileName = "*"
+    else if (fileName.startsWith("[") && fileName.endsWith("]"))
         fileName = `:${fileName.slice(1, fileName.length - 1)}`
 
     return path.join(fileDir, fileName)
