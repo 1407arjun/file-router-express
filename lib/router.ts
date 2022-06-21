@@ -7,9 +7,18 @@ const files = readDirRecursive(dir)
 const paths: string[] = []
 
 const routes = files.map(file => {
-    const fileDir = path.parse(file).dir
+    let fileDir = path.parse(file).dir
     let fileName = path.parse(file).name
     paths.push(path.join(fileDir, fileName))
+
+    fileDir = fileDir
+        .split("/")
+        .map(file => {
+            if (file.startsWith("[") && file.endsWith("]"))
+                return `:${file.slice(1, file.length - 1)}`
+            return file
+        })
+        .join("/")
 
     if (fileName.startsWith("[") && fileName.endsWith("]"))
         fileName = `:${fileName.slice(1, fileName.length - 1)}`
