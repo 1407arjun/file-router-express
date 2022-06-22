@@ -1,13 +1,31 @@
-import express from "express"
 import path from "path"
 
-const router = express.Router()
+export default (files: string[]) => {
+    const paths: string[] = []
 
-export default (dir: string, paths: string[], routes: string[]) => {
-    routes.forEach((route, index) => {
-        const cwd = path.relative(__dirname, dir)
-        const handlers = require(path.join(cwd, paths[index]))
-        handlers.default && router.all(`/${route}`, handlers.default)
+    const routes = files.map(file => {
+        let fileDir = path.parse(file).dir
+        let fileName = path.parse(file).name
+        paths.push(path.posix.join(fileDir, fileName))
+
+        fileName = fileName.toLowerCase()
+        if (fileDir.length === 0 && fileName === "index") return "/"
+
+        fileDir = fileDir
+            .split(path.sep)
+            .map(file => {
+                if (file.startsWith("[") && file.endsWith("]"))
+                    return `:${file.slice(1, file.length - 1)}`
+                return file
+            })
+            .join("/")
+
+        if (fileName.startsWith("[...") && fileName.endsWith("]"))
+            fileName = "*"
+        else if (fileName.startsWith("[") && fileName.endsWith("]"))
+            fileName = `:${fileName.slice(1, fileName.length - 1)}`
+
+        return path.posix.join(fileDir, fileName)
     })
-    return router
+    return { paths, routes }
 }
