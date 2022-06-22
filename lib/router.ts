@@ -20,6 +20,14 @@ routes.forEach((route, index) => {
     handlers.put && router.put(`/${route}`, handlers.put)
     handlers.patch && router.patch(`/${route}`, handlers.patch)
     handlers.del && router.delete(`/${route}`, handlers.del)
+
+    handlers.copy && router.copy(`/${route}`, handlers.copy)
+    handlers.head && router.head(`/${route}`, handlers.head)
+    handlers.options && router.options(`/${route}`, handlers.options)
+    handlers.purge && router.purge(`/${route}`, handlers.purge)
+    handlers.lock && router.lock(`/${route}`, handlers.lock)
+    handlers.unlock && router.unlock(`/${route}`, handlers.unlock)
+    handlers.propfind && router.propfind(`/${route}`, handlers.propfind)
 })
 
 export default router
