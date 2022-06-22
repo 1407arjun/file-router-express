@@ -8,6 +8,9 @@ export default (files: string[]) => {
         let fileName = path.parse(file).name
         paths.push(path.posix.join(fileDir, fileName))
 
+        fileName = fileName.toLowerCase()
+        if (fileDir.length === 0 && fileName === "index") return "/"
+
         fileDir = fileDir
             .split(path.sep)
             .map(file => {
