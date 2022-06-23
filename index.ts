@@ -1,3 +1,3 @@
-import app from "./lib/app"
+import router from "./lib/router"
 
-export default app
+export default router
