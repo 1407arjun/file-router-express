@@ -1,8 +1,7 @@
 {
-  "name": "mvc-fy",
-  "version": "0.2.2",
-  "description": "Making Express.js more stricter than it is",
-  "bin": "dist/bin/cli.js",
+  "name": "express-fs",
+  "version": "0.5.0",
+  "description": "React-Router based file-system routing for Express.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -13,19 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1407arjun/mvc-fy.git"
+    "url": "git+https://github.com/1407arjun/express-fs.git"
   },
   "keywords": [
     "express",
     "node",
-    "mvc"
+    "file-system"
   ],
   "author": "Arjun Sivaraman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1407arjun/mvc-fy/issues"
+    "url": "https://github.com/1407arjun/express-fs/issues"
   },
-  "homepage": "https://github.com/1407arjun/mvc-fy#readme",
+  "homepage": "https://github.com/1407arjun/express-fs#readme",
   "dependencies": {
     "express": "^4.18.1"
   },

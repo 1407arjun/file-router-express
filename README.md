@@ -1,3 +1,3 @@
-# mvc-fy
+# express-fs
 
-Making Express.js more stricter than it is
+React-Router based file-system routing for Express.js
