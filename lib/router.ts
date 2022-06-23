@@ -3,16 +3,16 @@ import readDirRecursive from "./utils/readDirRecursive"
 import path from "path"
 import mapRoutes from "./router/map"
 
-const dir = path.join(process.cwd(), "dist/routes")
-const files = readDirRecursive(dir)
+const dir = path.join(process.cwd(), "dist")
+const routeFiles = readDirRecursive(path.join(dir, "routes"))
 
 const router = express.Router()
 
-const { paths, routes } = mapRoutes(files)
+const { paths, routes } = mapRoutes(routeFiles)
 
 routes.forEach((route, index) => {
     const cwd = path.relative(__dirname, dir)
-    const handlers = require(path.join(cwd, paths[index]))
+    const handlers = require(path.posix.join(cwd, paths[index]))
 
     handlers.default && router.all(`/${route}`, handlers.default)
     handlers.get && router.get(`/${route}`, handlers.get)
