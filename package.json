@@ -1,6 +1,6 @@
 {
   "name": "mvc-fy",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Making Express.js more stricter than it is",
   "bin": "dist/bin/cli.js",
   "main": "dist/index.js",

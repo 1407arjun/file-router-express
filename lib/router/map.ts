@@ -6,13 +6,15 @@ export default (files: string[]) => {
     const routes = files.map(file => {
         let fileDir = path.parse(file).dir
         let fileName = path.parse(file).name
+
+        fileDir = fileDir.split(path.sep).join("/")
         paths.push(path.posix.join(fileDir, fileName))
 
         fileName = fileName.toLowerCase()
         if (fileDir.length === 0 && fileName === "index") return "/"
 
         fileDir = fileDir
-            .split(path.sep)
+            .split("/")
             .map(file => {
                 if (file.startsWith("[") && file.endsWith("]"))
                     return `:${file.slice(1, file.length - 1)}`
