@@ -2,7 +2,7 @@
   "name": "express-fs",
   "version": "0.5.0",
   "description": "React-Router based file-system routing for Express.js",
-  "main": "dist/index.js",
+  "main": "dist/router.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts .",
