@@ -1,17 +1,20 @@
-# express-fs
+# file-router-express
 
 React-Router based file-system routing for Express.js.
+
 ```sh
-npm i express-fs
+npm i file-router-express
 ```
 
 ## Usage
 
 ### Quick start
->Note that the router is extension independent, i.e. `.js` and `.ts` files are treated the same.
+
+> Note that the router is extension independent, i.e. `.js` and `.ts` files are treated the same.
+
 ```js
 import express from "express"
-import router from "express-fs"
+import router from "file-router-express"
 
 const app = express()
 app.use("/", router)
@@ -19,6 +22,7 @@ app.listen(PORT)
 ```
 
 ### Routing
+
 ```sh
 Examples:
 index.js => /
@@ -30,7 +34,9 @@ route1/[...route2].js => route1/*
 ```
 
 ### Handlers
+
 > Named exports take higher preference over default exports
+
 ```js
 // Named exports
 export const get = (req, res, next) => {...} // Same as router.get('route', get)
@@ -46,7 +52,9 @@ export default (req, res, next) => {...} // Same as router.all('route', (req, re
 ```
 
 ### Middlewares
+
 > Export an array of middleware functions along with the handler instead of the handler alone.
+
 ```js
 // Named exports
 export const get = [middleware1, middleware2, ..., handler] // Same as router.get('route', middleware1, middleware2, ..., handler)

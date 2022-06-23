@@ -1,5 +1,5 @@
 {
-  "name": "express-fs",
+  "name": "file-router-express",
   "version": "0.5.0",
   "description": "React-Router based file-system routing for Express.js",
   "main": "dist/router.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1407arjun/express-fs.git"
+    "url": "git+https://github.com/1407arjun/file-router-express.git"
   },
   "keywords": [
     "express",
@@ -22,9 +22,9 @@
   "author": "Arjun Sivaraman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1407arjun/express-fs/issues"
+    "url": "https://github.com/1407arjun/file-router-express/issues"
   },
-  "homepage": "https://github.com/1407arjun/express-fs#readme",
+  "homepage": "https://github.com/1407arjun/file-router-express#readme",
   "dependencies": {
     "express": "^4.18.1"
   },
